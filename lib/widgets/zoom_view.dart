@@ -1,3 +1,5 @@
+import 'package:animation_app/constants.dart';
+import 'package:animation_app/widgets/item_builder.dart';
 import 'package:flutter/material.dart';
 
 class ZoomView extends StatefulWidget {
@@ -23,7 +25,7 @@ class _ZoomViewState extends State<ZoomView> {
                 duration: const Duration(milliseconds: 370),
                 width: _size,
                 curve: _curve,
-                child: Image.asset('lib/flutter_logo.png')),
+                child: Image.asset(AppConstants.flutterLogo)),
             TextButton(
               onPressed: () {
                 setState(() {
@@ -38,5 +40,12 @@ class _ZoomViewState extends State<ZoomView> {
         )
       ],
     );
+  }
+}
+
+class ZoomBuilder extends ItemBuilder {
+  @override
+  Widget buildWidget() {
+    return const ZoomView();
   }
 }

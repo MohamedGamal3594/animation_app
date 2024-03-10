@@ -1,18 +1,21 @@
 import 'dart:math';
+import 'package:animation_app/widgets/item_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector3;
 
-class CubeRotateView extends StatelessWidget {
-  CubeRotateView({
+class CubeRotate extends StatelessWidget {
+  CubeRotate({
     super.key,
-    required this.controllers,
+    required this.xController,
+    required this.yController,
+    required this.zController,
   });
   final double length = 80;
   final Tween<double> tween = Tween<double>(
     begin: 0,
     end: pi * 2,
   );
-  final List<AnimationController> controllers;
+  final AnimationController xController, yController, zController;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,9 +24,9 @@ class CubeRotateView extends StatelessWidget {
         Transform(
           alignment: Alignment.center,
           transform: Matrix4.identity()
-            ..rotateX(tween.evaluate(controllers[0]))
-            ..rotateY(tween.evaluate(controllers[1]))
-            ..rotateZ(tween.evaluate(controllers[2])),
+            ..rotateX(tween.evaluate(xController))
+            ..rotateY(tween.evaluate(yController))
+            ..rotateZ(tween.evaluate(zController)),
           child: Stack(
             children: [
               // front
@@ -87,6 +90,23 @@ class CubeRotateView extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class CubeRotateBuilder extends ItemBuilder {
+  CubeRotateBuilder({
+    required this.xController,
+    required this.yController,
+    required this.zController,
+  });
+  final AnimationController xController, yController, zController;
+  @override
+  Widget buildWidget() {
+    return CubeRotate(
+      xController: xController,
+      yController: yController,
+      zController: zController,
     );
   }
 }

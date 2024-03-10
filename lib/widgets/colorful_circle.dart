@@ -1,3 +1,4 @@
+import 'package:animation_app/widgets/item_builder.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -5,14 +6,14 @@ Color getRandomColor() => Color(
       0xFF000000 + math.Random().nextInt(0xFFFFFF),
     );
 
-class ColorfulCircleView extends StatefulWidget {
-  const ColorfulCircleView({super.key});
+class ColorfulCircle extends StatefulWidget {
+  const ColorfulCircle({super.key});
 
   @override
-  State<ColorfulCircleView> createState() => _ColorfulCircleViewState();
+  State<ColorfulCircle> createState() => _ColorfulCircleState();
 }
 
-class _ColorfulCircleViewState extends State<ColorfulCircleView> {
+class _ColorfulCircleState extends State<ColorfulCircle> {
   final double length = 120;
   var _color = getRandomColor();
   @override
@@ -50,5 +51,12 @@ class _ColorfulCircleViewState extends State<ColorfulCircleView> {
         )
       ],
     );
+  }
+}
+
+class ColorfulCircleBuilder extends ItemBuilder {
+  @override
+  Widget buildWidget() {
+    return const ColorfulCircle();
   }
 }

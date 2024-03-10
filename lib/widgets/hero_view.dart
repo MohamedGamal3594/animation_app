@@ -1,4 +1,5 @@
-import 'package:animation_app/screens/hero_details_screen.dart';
+import 'package:animation_app/pages/hero_details.dart';
+import 'package:animation_app/widgets/item_builder.dart';
 import 'package:flutter/material.dart';
 
 class HeroView extends StatelessWidget {
@@ -10,7 +11,7 @@ class HeroView extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, HeroDetailsScreen.id);
+            Navigator.pushNamed(context, HeroDetails.id);
           },
           child: Hero(
             tag: 'hero',
@@ -52,5 +53,12 @@ class HeroView extends StatelessWidget {
         )
       ],
     );
+  }
+}
+
+class HeroBuilder extends ItemBuilder {
+  @override
+  Widget buildWidget() {
+    return const HeroView();
   }
 }

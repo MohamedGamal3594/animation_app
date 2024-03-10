@@ -1,9 +1,10 @@
 import 'dart:math';
+import 'package:animation_app/widgets/item_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector3;
 
-class CardRotateView extends StatelessWidget {
-  CardRotateView({
+class CardRotate extends StatelessWidget {
+  CardRotate({
     super.key,
     required this.color,
     required this.axis,
@@ -35,6 +36,25 @@ class CardRotateView extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class CardRotateBuilder extends ItemBuilder {
+  CardRotateBuilder({
+    required this.color,
+    required this.axis,
+    required this.controller,
+  });
+  final AnimationController controller;
+  final Vector3 axis;
+  final Color color;
+  @override
+  Widget buildWidget() {
+    return CardRotate(
+      color: color,
+      axis: axis,
+      controller: controller,
     );
   }
 }

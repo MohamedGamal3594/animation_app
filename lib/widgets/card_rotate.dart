@@ -41,7 +41,7 @@ class CardRotate extends StatelessWidget {
 }
 
 class CardRotateBuilder extends ItemBuilder {
-  CardRotateBuilder({
+  const CardRotateBuilder({
     required this.color,
     required this.axis,
     required this.controller,

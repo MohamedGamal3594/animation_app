@@ -55,6 +55,7 @@ class _ColorfulCircleState extends State<ColorfulCircle> {
 }
 
 class ColorfulCircleBuilder extends ItemBuilder {
+  const ColorfulCircleBuilder();
   @override
   Widget buildWidget() {
     return const ColorfulCircle();

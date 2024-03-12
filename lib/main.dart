@@ -1,5 +1,5 @@
+import 'package:animation_app/pages/app_home.dart';
 import 'package:animation_app/pages/hero_details.dart';
-import 'package:animation_app/pages/home.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
@@ -22,10 +22,10 @@ class AnimationApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       routes: {
-        Home.id: (context) => const Home(),
+        AppHome.id: (context) => const AppHome(),
         HeroDetails.id: (context) => const HeroDetails(),
       },
-      initialRoute: Home.id,
+      initialRoute: AppHome.id,
     );
   }
 }

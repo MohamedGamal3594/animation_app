@@ -44,6 +44,7 @@ class _ZoomViewState extends State<ZoomView> {
 }
 
 class ZoomBuilder extends ItemBuilder {
+  const ZoomBuilder();
   @override
   Widget buildWidget() {
     return const ZoomView();

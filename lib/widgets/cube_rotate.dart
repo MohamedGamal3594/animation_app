@@ -95,7 +95,7 @@ class CubeRotate extends StatelessWidget {
 }
 
 class CubeRotateBuilder extends ItemBuilder {
-  CubeRotateBuilder({
+  const CubeRotateBuilder({
     required this.xController,
     required this.yController,
     required this.zController,

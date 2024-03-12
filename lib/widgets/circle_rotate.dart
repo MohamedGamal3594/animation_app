@@ -152,7 +152,7 @@ class HalfCircleClipper extends CustomClipper<Path> {
 }
 
 class CircleRotateBuilder extends ItemBuilder {
-  CircleRotateBuilder({
+  const CircleRotateBuilder({
     required this.counterClockwiseRotationController,
     required this.flipController,
   });

@@ -57,6 +57,7 @@ class HeroView extends StatelessWidget {
 }
 
 class HeroBuilder extends ItemBuilder {
+  const HeroBuilder();
   @override
   Widget buildWidget() {
     return const HeroView();

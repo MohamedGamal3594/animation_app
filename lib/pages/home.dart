@@ -1,3 +1,4 @@
+import 'package:animation_app/widgets/animated_polygon.dart';
 import 'package:animation_app/widgets/card_rotate.dart';
 import 'package:animation_app/widgets/circle_rotate.dart';
 import 'package:animation_app/widgets/colorful_circle.dart';
@@ -10,7 +11,6 @@ import 'package:vector_math/vector_math_64.dart' show Vector3;
 
 class Home extends StatefulWidget {
   const Home({super.key});
-  static const id = 'Home';
   @override
   State<Home> createState() => _HomeState();
 }
@@ -23,7 +23,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   late AnimationController _cardController;
 
   // CircleRotateComponents
-  var doFlip = false;
   late AnimationController _counterClockwiseRotationController;
   late AnimationController _flipController;
 
@@ -31,6 +30,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   late AnimationController _xController;
   late AnimationController _yController;
   late AnimationController _zController;
+
+  // polygonComponent
+  late AnimationController _sidesController;
+  late AnimationController _radiusController;
+  late AnimationController _rotationController;
 
   @override
   void initState() {
@@ -71,6 +75,20 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ..reset()
       ..repeat();
 
+    // polygonSetUp
+    _sidesController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    )..repeat(reverse: true);
+    _radiusController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    )..repeat(reverse: true);
+    _rotationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    )..repeat(reverse: true);
+
     // Initailize items
     items = [
       CardRotateBuilder(
@@ -97,9 +115,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         yController: _yController,
         zController: _zController,
       ),
-      HeroBuilder(),
-      ZoomBuilder(),
-      ColorfulCircleBuilder(),
+      const HeroBuilder(),
+      const ZoomBuilder(),
+      const ColorfulCircleBuilder(),
+      AnimatedPolygonBuilder(
+        sideController: _sidesController,
+        radiusController: _radiusController,
+        rotationController: _rotationController,
+      ),
     ];
   }
 
@@ -120,6 +143,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             _xController,
             _yController,
             _zController,
+            _sidesController,
+            _radiusController,
+            _rotationController
           ]),
           builder: (context, child) {
             return GridView.builder(
@@ -148,6 +174,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     _xController.dispose();
     _yController.dispose();
     _zController.dispose();
+    _sidesController.dispose();
+    _radiusController.dispose();
+    _rotationController.dispose();
     super.dispose();
   }
 }

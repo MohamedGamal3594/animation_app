@@ -3,7 +3,7 @@ import 'package:animation_app/widgets/item_builder.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedPolygon extends StatelessWidget {
-  AnimatedPolygon(
+  const AnimatedPolygon(
       {super.key,
       required this.sideController,
       required this.radiusController,
@@ -11,20 +11,11 @@ class AnimatedPolygon extends StatelessWidget {
   final AnimationController sideController;
   final AnimationController radiusController;
   final AnimationController rotationController;
-  final Tween<int> sidesTween = IntTween(
-    begin: 3,
-    end: 10,
-  );
-  final Tween<double> radiusTween = Tween<double>(
-    begin: 20,
-    end: 120,
-  );
-  final Tween<double> rotationTween = Tween<double>(
-    begin: 0,
-    end: 2 * pi,
-  );
   @override
   Widget build(BuildContext context) {
+    final Tween<int> sidesTween = IntTween(begin: 3, end: 10);
+    final Tween<double> radiusTween = Tween<double>(begin: 20, end: 120);
+    final Tween<double> rotationTween = Tween<double>(begin: 0, end: 2 * pi);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

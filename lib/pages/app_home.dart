@@ -1,6 +1,6 @@
 import 'package:animation_app/pages/home.dart';
 import 'package:animation_app/pages/home_3drawer.dart';
-import 'package:animation_app/pages/profile_drawer.dart';
+import 'package:animation_app/pages/my_drawer.dart';
 import 'package:flutter/material.dart';
 
 class AppHome extends StatelessWidget {
@@ -9,7 +9,7 @@ class AppHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Home3Drawer(
-      drawer: ProfileDrawer(),
+      drawer: MyDrawer(),
       home: Home(),
     );
   }

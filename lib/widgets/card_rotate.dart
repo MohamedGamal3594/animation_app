@@ -4,21 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector3;
 
 class CardRotate extends StatelessWidget {
-  CardRotate({
+  const CardRotate({
     super.key,
     required this.color,
     required this.axis,
     required this.controller,
   });
   final AnimationController controller;
-  final Tween<double> tween = Tween<double>(
-    begin: 0.0,
-    end: 2 * pi,
-  );
   final Vector3 axis;
   final Color color;
   @override
   Widget build(BuildContext context) {
+    final Tween<double> tween = Tween<double>(begin: 0.0, end: 2 * pi);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

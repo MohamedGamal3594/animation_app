@@ -101,11 +101,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         axis: Vector3(0, 1.0, 0),
         controller: _cardController,
       ),
-      CardRotateBuilder(
-        color: Colors.white,
-        axis: Vector3(0, 0, 1.0),
-        controller: _cardController,
-      ),
       CircleRotateBuilder(
         counterClockwiseRotationController: _counterClockwiseRotationController,
         flipController: _flipController,

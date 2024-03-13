@@ -4,20 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector3;
 
 class CubeRotate extends StatelessWidget {
-  CubeRotate({
+  const CubeRotate({
     super.key,
     required this.xController,
     required this.yController,
     required this.zController,
   });
   final double length = 80;
-  final Tween<double> tween = Tween<double>(
-    begin: 0,
-    end: pi * 2,
-  );
   final AnimationController xController, yController, zController;
   @override
   Widget build(BuildContext context) {
+    final Tween<double> tween = Tween<double>(begin: 0, end: pi * 2);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

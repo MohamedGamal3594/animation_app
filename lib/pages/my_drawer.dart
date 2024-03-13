@@ -9,33 +9,32 @@ class MyDrawer extends StatelessWidget {
     return Material(
       child: Container(
         color: Colors.black12,
-        child: Column(
-          children: [
-            const Spacer(),
-            Row(
+        child: Center(
+          child: Transform.translate(
+            offset: Offset(
+              MediaQuery.of(context).size.width * 0.1,
+              0,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.2,
+                const Text(
+                  'One more thing 👇🏻',
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                const Spacer(),
-                const Column(
-                  children: [
-                    Text(
-                      'One more thing 👇🏻',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    AnimatedCard(),
-                  ],
+                const SizedBox(height: 20),
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: MediaQuery.of(context).size.width * 0.7,
+                  ),
+                  child: const AnimatedCard(),
                 ),
-                const Spacer(),
               ],
             ),
-            const Spacer()
-          ],
+          ),
         ),
       ),
     );

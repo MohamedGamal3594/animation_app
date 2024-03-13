@@ -87,7 +87,25 @@ class _Home3DrawerState extends State<Home3Drawer>
                   ..setEntry(2, 2, 0.001)
                   ..translate(_xControllerForChild.value * maxDrag)
                   ..rotateY(_yRotationAnimationForChild.value),
-                child: widget.home,
+                child: Scaffold(
+                  appBar: AppBar(
+                      title: const Text(
+                        'Animations',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      centerTitle: true,
+                      leading: IconButton(
+                        onPressed: () {
+                          _xControllerForChild.forward();
+                          _xControllerForDrawer.forward();
+                        },
+                        icon: const Icon(Icons.menu),
+                      )),
+                  body: widget.home,
+                ),
               ),
               Transform(
                 alignment: Alignment.centerRight,

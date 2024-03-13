@@ -35,7 +35,7 @@ class _AnimatedCardState extends State<AnimatedCard>
 
     _iconScaleAnimation = Tween<double>(
       begin: 7,
-      end: 6,
+      end: 10,
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -77,68 +77,63 @@ class _AnimatedCardState extends State<AnimatedCard>
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
           ),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(
-              minWidth: 100,
-              minHeight: 100,
-            ),
-            child: Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(32.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const SizedBox(
-                        height: 120,
+          child: Stack(
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(32.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      height: 120,
+                    ),
+                    Text(
+                      'We are done!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
                       ),
-                      const Text(
-                        'We are done!',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      'See you next project 👋🏻',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'See you next project!',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[600],
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Positioned.fill(
-                  child: SlideTransition(
-                    position: _yAnimation,
-                    child: ScaleTransition(
-                      scale: _containerScaleAnimation,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white,
-                        ),
-                        child: ScaleTransition(
-                          scale: _iconScaleAnimation,
-                          child: const Icon(
-                            Icons.check,
-                            color: Colors.black,
-                          ),
+              ),
+              Positioned.fill(
+                child: SlideTransition(
+                  position: _yAnimation,
+                  child: ScaleTransition(
+                    scale: _containerScaleAnimation,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: ScaleTransition(
+                        scale: _iconScaleAnimation,
+                        child: const Icon(
+                          Icons.card_giftcard,
+                          color: Colors.black,
+                          size: 15,
                         ),
                       ),
                     ),
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
       ),

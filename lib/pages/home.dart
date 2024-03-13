@@ -124,39 +124,33 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.sizeOf(context).width;
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Animations'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: AnimatedBuilder(
-          animation: Listenable.merge([
-            _cardController,
-            _counterClockwiseRotationController,
-            _flipController,
-            _xController,
-            _yController,
-            _zController,
-            _sidesController,
-            _radiusController,
-            _rotationController
-          ]),
-          builder: (context, child) {
-            return GridView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 30),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: width < 500 ? 1 : 2,
-                childAspectRatio: 1.7,
-              ),
-              itemCount: items.length,
-              itemBuilder: (BuildContext context, int index) {
-                final item = items[index];
-                return item.buildWidget();
-              },
-            );
-          },
-        ),
+    return Center(
+      child: AnimatedBuilder(
+        animation: Listenable.merge([
+          _cardController,
+          _counterClockwiseRotationController,
+          _flipController,
+          _xController,
+          _yController,
+          _zController,
+          _sidesController,
+          _radiusController,
+          _rotationController
+        ]),
+        builder: (context, child) {
+          return GridView.builder(
+            padding: const EdgeInsets.symmetric(vertical: 30),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: width < 500 ? 1 : 2,
+              childAspectRatio: 1.7,
+            ),
+            itemCount: items.length,
+            itemBuilder: (BuildContext context, int index) {
+              final item = items[index];
+              return item.buildWidget();
+            },
+          );
+        },
       ),
     );
   }
